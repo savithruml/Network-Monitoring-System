@@ -4,29 +4,6 @@ from twilio.rest import TwilioRestClient
 import config_fetch
 import sys
 
-
-def main():
-
-    running = True
-    time = 'TRAP RECEIVED AT: ' + str(datetime.datetime.now())
-    out = open('/home/netman/traps/traps.log', 'a')
-    out.write('\n')
-    out.write(time + '\n')
-
-    while running:
-
-        try:
-            input = raw_input()
-            parse_data(input, time)
-            out.write(input + '\n')
-
-        except EOFError:
-            running = False
-
-    out.close()
-
-
-
 def parse_data(input, time):
 
     out1 = open('/home/netman/traps/trapsinfo.log', 'a')
@@ -109,6 +86,25 @@ def message_twilio(msg):
 
     print call.sid
 
+def main():
+
+    running = True
+    time = 'TRAP RECEIVED AT: ' + str(datetime.datetime.now())
+    out = open('/home/netman/traps/traps.log', 'a')
+    out.write('\n')
+    out.write(time + '\n')
+
+    while running:
+
+        try:
+            input = raw_input()
+            parse_data(input, time)
+            out.write(input + '\n')
+
+        except EOFError:
+            running = False
+
+    out.close()
 
 
 if __name__ == '__main__':
