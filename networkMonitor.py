@@ -27,8 +27,6 @@ def parse_data(input, time):
     else:
         pass
 
-
-
 def send_mail(interface):
 
     sender_mail = 'test@gmail.com'
@@ -60,8 +58,6 @@ Subject: IMPORTANT: INTERFACE CHANGE DETECTED
     except smtplib.SMTPException:
         pass
 
-
-
 def message_twilio(msg):
 
     sid = "<sid>"
@@ -72,8 +68,6 @@ def message_twilio(msg):
     msg1 = msg.split(':')[-1]
     msg2 = msg1.split(' ')
     msg3 = msg2[-1].split('/')
-
-
 
     url_msg = 'http://twimlets.com/message?Message%5B0%5D=ALL%20NETWORK%20ADMINISTRATORS%20IMMEDIATE%20ATTENTION%20REQUIRED&Message%5B1%5D=' + msg2[0] + '%20' + msg2[1] + '%20on%20' + msg3[0] +'%2F'+ msg3[1] + '&'
 
@@ -105,7 +99,6 @@ def main():
             running = False
 
     out.close()
-
 
 if __name__ == '__main__':
     main()
