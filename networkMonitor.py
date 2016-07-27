@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 import datetime
 import smtplib
 from twilio.rest import TwilioRestClient
